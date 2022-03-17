@@ -1,0 +1,29 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "a8b8d24d46e668f990ea88e0dac43f73c34b6ed2e1a63a4c1bb2d394c273642a"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.9"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "opencc-python-reimplemented": {
+            "hashes": [
+                "sha256:3071d7ddcecc1b5129434e713e35f73aab9f5bd507d728c908acdbb48879194d",
+                "sha256:6e4eaae2bd6b04d5c1b5bd7f3f87904ba2f1caa982203fdf2610c8261e47ee24"
+            ],
+            "index": "pypi",
+            "version": "==0.1.6"
+        }
+    },
+    "develop": {}
+}

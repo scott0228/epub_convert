@@ -1,9 +1,9 @@
 import zipfile
-import opencc
+from opencc import OpenCC
 from pathlib import Path
 
 # only initailize OpenCC once, or it would be very slow
-converter = opencc.OpenCC(config="s2twp.json")
+converter = OpenCC('s2twp')
 
 def convert_epub(epub, output=None):
     target_filetype = ["htm", "html", "xhtml", "ncx", "opf"]
@@ -11,12 +11,13 @@ def convert_epub(epub, output=None):
     origin = zipfile.ZipFile(epub, mode="r")
     copy = zipfile.ZipFile(output, mode="w")
 
-    for i, fn in enumerate(origin.namelist()):
+    for fn in origin.namelist():
+        print(f"Process content file {fn}")
         info = origin.getinfo(fn)
         extension = Path(fn).suffix[1:] # remove heading `.`
         if extension in target_filetype:
             # if file extension is targeted file type
-            sc_content = origin.read(fn)
+            sc_content = origin.read(fn).decode("utf-8-sig")
             tc_content = convert_content(sc_content)
             if extension == "opf":
                 tc_content = tc_content.replace("<dc:language>zh-CN</dc:language>", "<dc:language>zh-TW</dc:language>")
