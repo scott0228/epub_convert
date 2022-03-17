@@ -13,12 +13,13 @@ Online Version: https://epub.stoneapp.tech/
 ## Usage
 - command line
 ```bash
-$ python convert.py <epub>
+$ pipenv install
+$ pipenv run python convert.py <epub>
 ```
 
 - development web server
 ```bash
-$ python web.py
+$ pipenv run python web.py
 ```
 
 - apache `mod_wsgi`

@@ -9,7 +9,7 @@ from pathlib import Path
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
-app.config['MAX_CONTENT_LENGTH'] = 20 * 1024 * 1024
+app.config['MAX_CONTENT_LENGTH'] = 40 * 1024 * 1024
 
 def human_file_size(bytes_count):
     threshold = 1024
@@ -61,4 +61,4 @@ def upload_epub_sync():
         return jsonify({"status": False, "error": "Not an epub document"}), 415 # Unsupported Media Type
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
+    app.run(host="0.0.0.0", debug=True, port=8080)
